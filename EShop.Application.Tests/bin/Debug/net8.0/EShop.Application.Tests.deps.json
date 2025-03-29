@@ -9,6 +9,7 @@
       "EShop.Application.Tests/1.0.0": {
         "dependencies": {
           "EShop.Application": "1.0.0",
+          "EShop.Domain": "1.0.0",
           "EShopService": "1.0.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "coverlet.collector": "6.0.0",
@@ -1071,8 +1072,19 @@
       },
       "xunit.runner.visualstudio/2.5.3": {},
       "EShop.Application/1.0.0": {
+        "dependencies": {
+          "EShop.Domain": "1.0.0"
+        },
         "runtime": {
           "EShop.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "EShop.Domain/1.0.0": {
+        "runtime": {
+          "EShop.Domain.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1081,6 +1093,7 @@
       "EShopService/1.0.0": {
         "dependencies": {
           "EShop.Application": "1.0.0",
+          "EShop.Domain": "1.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -1772,6 +1785,11 @@
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
     "EShop.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EShop.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

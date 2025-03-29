@@ -99,11 +99,24 @@
       "EShop.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "EShop.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/EShop.Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/EShop.Application.dll": {}
+        }
+      },
+      "EShop.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/EShop.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EShop.Domain.dll": {}
         }
       }
     }
@@ -541,11 +554,17 @@
       "type": "project",
       "path": "../EShop.Application/EShop.Application.csproj",
       "msbuildProject": "../EShop.Application/EShop.Application.csproj"
+    },
+    "EShop.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EShop.Domain/EShop.Domain.csproj",
+      "msbuildProject": "../EShop.Domain/EShop.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "EShop.Application >= 1.0.0",
+      "EShop.Domain >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.21.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -584,6 +603,9 @@
           "projectReferences": {
             "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Application\\EShop.Application.csproj": {
               "projectPath": "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Application\\EShop.Application.csproj"
+            },
+            "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Domain\\EShop.Domain.csproj": {
+              "projectPath": "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Domain\\EShop.Domain.csproj"
             }
           }
         }

@@ -8,7 +8,8 @@ namespace EShop.Domain.Exceptions
 {
     public class CardNumberInvalidException : Exception
     {
-        public CardNumberInvalidException() { }
-        public CardNumberInvalidException(string message) : base(message) { } 
+        public CardNumberInvalidException() : base("Card Number invalid") { }
+        public CardNumberInvalidException(Exception innerException) : base("Card Number invalid",innerException) { }
+
     }
 }

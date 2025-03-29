@@ -1,24 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EShop.Application;
 using EShopService.Models;
+using EShop.Domain.Exceptions;
+using System.Net;
+using EShop.Domain.Enums;
 namespace EShopService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CreditCardController
+    public class CreditCardController : ControllerBase
     {
-        [HttpGet("Validate/{cardNumber}")]
-        public bool GetValidation(string cardNumber)
+
+        protected ICreditCardService _creditCardService;
+        public CreditCardController(ICreditCardService creditCardService)
         {
-            return CreditCardService.ValidateCardNumber(cardNumber);
+            _creditCardService = creditCardService;
         }
 
-        [HttpGet("CardType/{cardNumber}")]
-        public string GetType(string cardNumber)
+        [HttpGet("ValidateCreditCard/{cardNumber}")]
+        public IActionResult GetValidation(string cardNumber) 
         {
-            return CreditCardService.GetCardType(cardNumber);
-        }
+            try
+            {
+                _creditCardService.ValidateCardNumber(cardNumber);
 
+                if (Enum.IsDefined(typeof(CreditCardProvider), _creditCardService.GetCardType(cardNumber)))
+                {
+                    return Ok(new { provider = _creditCardService.GetCardType(cardNumber) });
+                }
+                else
+                    return BadRequest(new { error = "Credit card provider not on the list", code = HttpStatusCode.NotAcceptable});
+            }
+            catch(CardNumberInvalidException ex)
+            {   
+                    return BadRequest(new { error = ex.Message, code = HttpStatusCode.BadRequest});
+            }
+            catch (CardNumberTooShortException ex)
+            {
+                return BadRequest(new { error = ex.Message, code = HttpStatusCode.BadRequest});
+            }
+            catch (CardNumberTooLongException ex)
+            {
+                return StatusCode((int)HttpStatusCode.RequestUriTooLong, new { error = ex.Message, code = HttpStatusCode.RequestUriTooLong });
+                
+            }
+        }
 
     }
 }

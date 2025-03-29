@@ -9,6 +9,7 @@
       "EShopService/1.0.0": {
         "dependencies": {
           "EShop.Application": "1.0.0",
+          "EShop.Domain": "1.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -65,8 +66,19 @@
         }
       },
       "EShop.Application/1.0.0": {
+        "dependencies": {
+          "EShop.Domain": "1.0.0"
+        },
         "runtime": {
           "EShop.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "EShop.Domain/1.0.0": {
+        "runtime": {
+          "EShop.Domain.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -130,6 +142,11 @@
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
     },
     "EShop.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EShop.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

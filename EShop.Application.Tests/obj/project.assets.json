@@ -1803,6 +1803,9 @@
       "EShop.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "EShop.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/EShop.Application.dll": {}
         },
@@ -1810,11 +1813,22 @@
           "bin/placeholder/EShop.Application.dll": {}
         }
       },
+      "EShop.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/EShop.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EShop.Domain.dll": {}
+        }
+      },
       "EShopService/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "EShop.Application": "1.0.0",
+          "EShop.Domain": "1.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -6050,6 +6064,11 @@
       "path": "../EShop.Application/EShop.Application.csproj",
       "msbuildProject": "../EShop.Application/EShop.Application.csproj"
     },
+    "EShop.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EShop.Domain/EShop.Domain.csproj",
+      "msbuildProject": "../EShop.Domain/EShop.Domain.csproj"
+    },
     "EShopService/1.0.0": {
       "type": "project",
       "path": "../EShopService/EShopService.csproj",
@@ -6059,6 +6078,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "EShop.Application >= 1.0.0",
+      "EShop.Domain >= 1.0.0",
       "EShopService >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "coverlet.collector >= 6.0.0",
@@ -6100,6 +6120,9 @@
           "projectReferences": {
             "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Application\\EShop.Application.csproj": {
               "projectPath": "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Application\\EShop.Application.csproj"
+            },
+            "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Domain\\EShop.Domain.csproj": {
+              "projectPath": "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShop.Domain\\EShop.Domain.csproj"
             },
             "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShopService\\EShopService.csproj": {
               "projectPath": "C:\\Users\\new.MSI\\source\\repos\\EShopServiceZadania\\EShopService\\EShopService.csproj"
