@@ -1,0 +1,11 @@
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\bin\Debug\net8.0\EShop.Application.deps.json
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\bin\Debug\net8.0\EShop.Application.dll
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\bin\Debug\net8.0\EShop.Application.pdb
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfoInputs.cache
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.AssemblyInfo.cs
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.csproj.CoreCompileInputs.cache
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.dll
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\refint\EShop.Application.dll
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\EShop.Application.pdb
+C:\Users\new.MSI\source\repos\EShopService\EShop.Application\obj\Debug\net8.0\ref\EShop.Application.dll
