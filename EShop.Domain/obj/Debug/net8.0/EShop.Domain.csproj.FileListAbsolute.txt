@@ -1,6 +1,7 @@
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\bin\Debug\net8.0\EShop.Domain.deps.json
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\bin\Debug\net8.0\EShop.Domain.dll
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\bin\Debug\net8.0\EShop.Domain.pdb
+C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\obj\Debug\net8.0\EShop.Domain.csproj.AssemblyReference.cache
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\obj\Debug\net8.0\EShop.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\obj\Debug\net8.0\EShop.Domain.AssemblyInfoInputs.cache
 C:\Users\new.MSI\source\repos\EShopServiceZadania\EShop.Domain\obj\Debug\net8.0\EShop.Domain.AssemblyInfo.cs

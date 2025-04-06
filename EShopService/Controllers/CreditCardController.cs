@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using EShop.Application;
-using EShopService.Models;
-using EShop.Domain.Exceptions;
+using EShop.Domain.Models;
 using System.Net;
 using EShop.Domain.Enums;
+using EShop.Domain.Exceptions.CreditCard;
+using EShop.Application.Services;
 namespace EShopService.Controllers
 {
     [Route("api/[controller]")]

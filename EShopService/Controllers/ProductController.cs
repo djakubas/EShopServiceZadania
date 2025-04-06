@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using EShopService.Models;
-
+using EShop.Domain.Models;
+using EShop.Application.Services;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace EShopService.Controllers
@@ -9,29 +9,25 @@ namespace EShopService.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+
+        protected IProductService _productService;
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
         // GET: api/<ProductController>
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            return Enumerable.Range(1, 5).Select(id => new Product
-            {
-                Category = new Category { Name = $"Kategoria {id}" },
-                Id = id,
-                UpdatedBy = Guid.NewGuid()
-            }).ToArray();
+            return _productService.Repository.GetAll();
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
         public Product Get(int id)
         {
-            return new Product
-            {
-                Category = new Category { Name = "Kategoria" },
-                Id = id,
-                CreatedAt = DateTime.Now,
-                CreatedBy = Guid.NewGuid()
-            };
+            return _productService.Repository.GetById(id);
         }
 
         // POST api/<ProductController>
