@@ -9,7 +9,6 @@ namespace EShopService.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-
         protected IProductService _productService;
         public ProductController(IProductService productService)
         {
@@ -18,34 +17,42 @@ namespace EShopService.Controllers
 
         // GET: api/<ProductController>
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public async Task<IActionResult> Get()
         {
-            return _productService.Repository.GetAll();
+            var result = await _productService.GetAllAsync();
+            return Ok(result);
         }
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return _productService.Repository.GetById(id);
+            var result = await _productService.GetByIdAsync(id);
+            return Ok(result);
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] Product value)
         {
+            var result = await _productService.AddAsync(value);
+            return Ok(result);
         }
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] Product value)
         {
+            var result = await _productService.UpdateAsync(value);
+            return Ok(result);
         }
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var result = await _productService.DeleteAsync(id);
+            return NoContent();
         }
     }
 }

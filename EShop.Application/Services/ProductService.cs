@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EShop.Domain.Models;
 using EShop.Domain.Repositories;
 using Microsoft.Identity.Client;
 
@@ -10,15 +11,42 @@ namespace EShop.Application.Services
 {
     public class ProductService : IProductService
     {
-        public ProductService(DataContext context)
+        //any business logic can be implemented in this service (e.g. add only if does not exist, update only if active etc.) 
+        protected readonly IProductRepository _productRepository;
+        public ProductService(IProductRepository repository)
         {
-            Repository = new ProductRepository(context);
+            _productRepository = repository;
         }
-        public IProductRepository Repository { get; set; }
+        
+        public async Task<IEnumerable<Product>> GetAllAsync()
+        {
+            return await _productRepository.GetAllAsync();
+        }
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _productRepository.GetByIdAsync(id);
+        }
+        public async Task<Product> AddAsync(Product product)
+        {
+            return await _productRepository.AddAsync(product);
+        }
+        public async Task<Product> UpdateAsync(Product product)
+        {
+            return await _productRepository.UpdateAsync(product);   
+        }
+        public async Task<Product> DeleteAsync(int id)
+        {
+            var p = await _productRepository.GetByIdAsync(id);
+            return await _productRepository.DeleteAsync(p);
+        }
     }
 
     public interface IProductService
     {
-        public IProductRepository Repository { get; set; }
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<Product> GetByIdAsync(int id);
+        Task<Product> AddAsync(Product product);
+        Task<Product> UpdateAsync(Product product);
+        Task<Product> DeleteAsync(int id);
     }
 }

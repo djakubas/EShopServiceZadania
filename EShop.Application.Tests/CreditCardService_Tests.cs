@@ -3,7 +3,7 @@ using EShop.Domain.Exceptions.CreditCard;
 
 namespace EShop.Application.Tests
 {
-    public class CreditCarService_Tests
+    public class CreditCardService_Tests
     {
         [Theory]
         [InlineData("3497 7965 8312 797",true)]

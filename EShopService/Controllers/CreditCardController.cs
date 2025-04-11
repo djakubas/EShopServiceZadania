@@ -23,13 +23,7 @@ namespace EShopService.Controllers
             try
             {
                 _creditCardService.ValidateCardNumber(cardNumber);
-
-                if (Enum.IsDefined(typeof(CreditCardProvider), _creditCardService.GetCardType(cardNumber)))
-                {
-                    return Ok(new { provider = _creditCardService.GetCardType(cardNumber) });
-                }
-                else
-                    return BadRequest(new { error = "Credit card provider not on the list", code = HttpStatusCode.NotAcceptable});
+                return Ok(new { provider = _creditCardService.GetCardType(cardNumber) });
             }
             catch(CardNumberInvalidException ex)
             {   

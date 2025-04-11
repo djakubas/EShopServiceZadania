@@ -12,7 +12,7 @@ namespace EShop.Domain.Seeders
 {
     public class EShopSeeder(DataContext context) : IEShopSeeder
     {
-        public void Seed()
+        public async Task Seed()
         {
             if (!context.Products.Any())
             {
@@ -33,13 +33,13 @@ namespace EShop.Domain.Seeders
                 };
 
                 context.Products.AddRange(Products);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
         }
     }
 
     public interface IEShopSeeder
     {
-        public void Seed();
+        public Task Seed();
     }
 }

@@ -12,11 +12,11 @@ namespace EShop.Domain.Repositories
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions options) : base(options) { }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder.UseSqlServer("CONN STRING WILL BE HERE (or not if I want to pass this class)");
-            optionsBuilder.UseInMemoryDatabase("TestDataBase");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    //optionsBuilder.UseSqlServer("CONN STRING");
+        //    //optionsBuilder.UseInMemoryDatabase("TestDataBase");
+        //}
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

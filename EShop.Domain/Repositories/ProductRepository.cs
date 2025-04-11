@@ -16,37 +16,41 @@ namespace EShop.Domain.Repositories
         {
             _context = context;
         }
-        public IEnumerable<Product> GetAll()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return _context.Products.ToList();
+            return await _context.Products.ToListAsync();
         }
-        public Product GetById(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
-            return _context.Products.Where(p => (p.Id == id)).First();
+            return await _context.Products.Where(p => (p.Id == id)).FirstOrDefaultAsync();
         }
-        public void Add(Product product)
+        public async Task<Product> AddAsync(Product product)
         {
             _context.Products.Add(product);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return product;
         }
-
-        public void Delete(int id)
-        {
-            _context.Products.Where(p => p.Id == id).ExecuteDelete();
-            _context.SaveChanges();
-        }
-
-        public void Update(Product product)
+        public async Task<Product> UpdateAsync(Product product)
         {
             _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return product;
         }
+        public async Task<Product> DeleteAsync(Product product)
+        {
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
+
+        
     }
     public interface IProductRepository
     {
-        IEnumerable<Product> GetAll();
-        Product GetById(int id);
-        void Add(Product product);
-        void Update(Product product);
-        void Delete(int id);
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<Product> GetByIdAsync(int id);
+        Task<Product> AddAsync(Product product);
+        Task<Product> UpdateAsync(Product product);
+        Task<Product> DeleteAsync(Product product);
     }
 }
